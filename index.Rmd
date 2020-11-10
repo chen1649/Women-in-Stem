@@ -1,0 +1,108 @@
+---
+title: "Women in STEM"
+author: "BF group 4"
+date: "5/18/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(knitr)
+source("scripts/sum_info.R")
+source("scripts/chart1.R")
+source("scripts/chart2.R")
+source("scripts/chart3.R")
+source("scripts/sum_table.R")
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+# Our research
+
+We are looking into Women in education and the workforce throughout the years, mainly in STEM (science, technology, engineering, and math) related fields. 
+
+Our group is interested in this topic for we are all females within a STEM-related major and wanted to know more about how it has changed and become more inclusive and what still needs to be improved. It has come a long way with more programs being added to help encourage girls to become more involved in STEM and make a career out of it. But there is still more to be done and the sooner its made aware to the public the sooner it can be changed for the better.
+
+## Source of our datasets
+women_bachelor_stem.csv https://www.nsf.gov/statistics/2018/nsb20181/report/sections/higher-education-in-science-and-engineering/undergraduate-education-enrollment-and-degrees-in-the-united-states?fbclid=IwAR3u37RvFzkKV71x4dYlMxageo5LIAWGUKSlMrU0pbIJkH__7JFXGpc2O00
+
+Employee Diversity in tech - May 2018.csv https://docs.google.com/spreadsheets/d/1e5jevLJTK9Aayob2msk4Ss9qIMCqfris4m_m0kXO-7s/edit?fbclid=IwAR1hTJ9ZPiwaN0h6O0uStf9rCR0d1DFhTEBUx3yxQU3wGb8Zq5jz4XzVSt0#gid=65558231
+
+Women in STEM Labor data.csv: https://www.dol.gov/agencies/wb/data/facts-over-time/women-in-the-labor-force?fbclid=IwAR1myw6ytyR83MC__0T-NebIDTVzCXVbJ1NnZZlW2BjHwl0TDNI5YbzEK6Y#womenstem
+
+Women in Software Engineering stats - Sheet1.csv:
+https://github.com/alison985/women-in-tech-datasets/blob/master/datasets/company_coder_gender_stats/2016-03-18-women_in_software_engineering_stats.csv
+
+female-labor-force-participation-OECD.csv:
+https://ourworldindata.org/female-labor-supply
+
+# Summary Info
+### Women in STEM Labor Data
+In the dataset named "Women in STEM Labor data," the highest proportion of women in Computer Occupactions was `r women_stem_info$max_percent_female_cs` in year `r  women_stem_info$year_max_percent_female_cs`. This information is important because it shows how the highest proportion of women in Computer Occupations was 1990, 28 years from 2018. In the year `r women_stem_info$year_max_percent_female_eng`, the proportion of women working in the field of Engineering was `r women_stem_info$max_percent_female_eng`, which is the highest proportion from 1970 to 2018. This information is important because although the highest proportion of women in engineering is 2018, the latest date of the data collected, it is only 16%. The average proportion of women working in STEM(including Computer occupations, Engineers, Life and physical scientists, Mathematics occupations, and Social scientists) in 2018 was `r women_stem_info$mean_percent_female_stem`. From 1970 - 2018, proportion of women instem had increased by `r  women_stem_info$increase_in_female_stem`. This information shows the low porportion of women in STEM, and throughout the course of 48 years, it only increased by 19%.
+
+### Women in Software Engineering stats
+The average of women engineers in this dataset is `r women_software_eng_info$mean_percent_female_eng`%, with the highest proportion of `r women_software_eng_info$highest_percent_female_eng`% in the companies `r women_software_eng_info$company_most_female_eng`. The lowest proportion of women engineers is `r women_software_eng_info$lowest_percent_female_eng`%, in the companies `r women_software_eng_info$company_least_female_eng`. This information is important because I wanted to see which companies are more gender inclusive and which ones are less gender inclusive when it comes to hiring software engineers. This calculation also shows the mean percentage of female software engineers.
+
+# Summary Tables & Charts
+
+### Table One
+```{r echo = FALSE}
+kable(sum_table)
+```
+
+This table shows the percent of women engineers compared to the total number of engineers across different companies that have more than 100 total engineers to not include too many outliers. 2018 and 2019 are also excluded from this table because the dataset didn’t contain enough information on these years to provide adequate information.
+This table is included to show how many women are receiving jobs in the science and engineering field compared to the total number of people employed in the same sector at different tech companies.
+The table shows that there has been growth over the five-year time frame. With some staggering and a big jump at the end in 2017. Even though there has been some growth, the percentage of women is still very low, showing that there is still room for improvement. 
+
+### Chart 1
+```{r chart_1, echo = FALSE}
+engineer_df <- read.csv("data/Women in Software Engineering stats - Sheet1.csv", 
+                        stringsAsFactors = FALSE)
+engineer_scatter_plot <- engineer_scatter_plot(engineer_df)
+engineer_scatter_plot
+```
+
+This chart compares the percent of total female engineers in a software company to the total number of engineers in a software company.
+This chart shows that regardless of the total size of the software company or the total number of engineers the percentage of female engineers working for the companies is often below 50%. In fact the larger companies happen to be the largest culprits, of the companies looked att all of the companies with 100 or more engineers have less than 25% female engineers working for them. 
+We will see a similar percentage breakdown when looking at percentage of females who earn an engineering degree, despite the fact that early childhood interest is 50 - 50. 
+This shows that there still is a large gender disparity in the engineering and cs field, probably dude to a combinationg of multiple reasons including: societal discouragement for females, sexism, lack of opportunity, etc. 
+All of these factors plus more probably result in the lack of a condusive envioronment for more females to work in the engineering field to this day.
+
+### Table Two
+```{r echo = FALSE}
+kable(sum_table_two)
+```
+
+This table displays information on the percent of graduates with a major in computer science who are female. This table is used to show how many female graduates are pursuing a career within the computer science industry which falls under the STEM spectrum.
+The table shows a downward trend in the percent of female graduates in computer science, by 10 percet. This could indicate that women are pursuing other STEM majors or the competition with the computer science major is rising to make it harder to be accepted into the major.
+
+### Chart 2
+```{r chart_2, echo=FALSE}
+degree_df <- read.csv("data/women_bachelor_stem.csv",
+                      stringsAsFactors = FALSE)
+degree_bar_chart <- get_bar_chart(degree_df)
+ 
+degree_bar_chart
+```
+
+This bar chart shows an overview of women's participation in education in STEM fields, and compares the averages of the Women's share of bachelor's degrees for science and engineering fields from 2000 - 2015. While the percentage of women in STEM in education and the workforce has been growing overall, there are still major differences between the individual fields, and some fields have seen very little growth. These statistics really speak to the fact that women are still underrepresented in some industries and fields inside STEM. 
+On average, women have earned more than 50% of the bachelor's degrees in Psychology, Biological/Agricultural sciences, and Social sciences; however, they are only earning an average of _21%_ of Computer science degrees. This highlights the fact that there is still a huge gender gap in the CS field. This also shows up in the Engineering field, where women are only earning an average of _20%_ of the degrees. Whether it's because of a lingering cultural stigma of women in these fields, a lack of role models, or sexism in the workplace, not all STEM fields have been having the percentages of women in them grow over the past decade. 
+
+### Table Three
+```{r echo = FALSE}
+kable(table_3)
+```
+
+Comparing the total percentage of women in the workforce to the percentage of women working within STEM occupations throughout the decades of 1970 to 2010. This table helps to explore how the trends of women in the workforce have changed. 
+In this table it shows how women in the workforce have grown some, but the percentage of women in STEM occupations has grown a lot. In 40 years it went up almost 20 percent, eventhough that is a big jump it only adds up to a little over a quarter of the total STEM employees, which shows that there is still a gender gap within the field. 
+
+### Chart 3
+
+```{r chart_3, echo=FALSE}
+library(readxl)
+stem_df <- read_excel("data/Women in STEM Labor data.xlsx")
+
+final_trend_line(stem_df)
+  
+```
+
+This trend line shows the percentages (in decimal) of women within different STEM occupations in the U.S from 1970-2019. Overall, most of the occupations are trending upward throughout the years. Computer occupations have been trending downward since 1990. Out of all them we can see the least participation in Engineering and the most in Social Sciences. 
