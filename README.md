@@ -1,5 +1,4 @@
 
-[Midpoint Deliverable](https://info-201a-sp20.github.io/final-project-chen1649/)
 
 # Project - Women In Stem
 [Final App Link](https://ehibbs.shinyapps.io/final-project-women-stem/)
