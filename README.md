@@ -1,33 +1,12 @@
 
 [Midpoint Deliverable](https://info-201a-sp20.github.io/final-project-chen1649/)
 
-# Final Project
+# Project - Women In Stem
 [Final App Link](https://ehibbs.shinyapps.io/final-project-women-stem/)
 
-## Domain of interest
-- Why are you interested in this field/domain?
+
    - We are interested in this field because it directly relates to us as a team of all females. Growing up it was never really advocated for girls to join the tech field, although it may seem a lot better now, there are still some set backs within the field we may not really see.
 
-- What other examples of data driven project have you found related to this domain (share at least 3)?
-   - Examples of datadriven project that we have found related to this doman are "Our World in Data", "Employee Diversity in Tech", and "Github."
-- What data-driven questions do you hope to answer about this domain (share at least 3)?
-  - What is the percentage of women in tech?
-  - What city has the most gender inclusivity in the work place?
-  - Is it really true that there are only small percentage of women in tech?
-  - Has the percentages of women of color in tech increased throughout the years?
-  - Which company stays the most true to inclusivity?
-
-
-## Finding Data
-- Where did you download the data (e.g., a web URL)?
-
-- How was the data collected or generated? Make sure to explain who collected the data (not necessarily the same people that host the data), and who or what the data is about?
-
-- How many observations (rows) are in your data?
-
-- How many features (columns) are in the data?
-
-- What questions (from above) can be answered using the data in this dataset?
 
 #### Our World In Data
 - The data was downloading from [this website](https://ourworldindata.org/female-labor-supply)  
